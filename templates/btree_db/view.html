@@ -6,10 +6,10 @@
 
 {% block content %}
     <h4>
-        <span class="text-secondary">Key:</span> {{ key }}
+        <span class="text-secondary">Key:</span> <span style="overflow-wrap: break-word;">{{ key }}</span>
     </h4>
     <h4>
-        <span class="text-secondary">Value:</span> {{ value }}
+        <span class="text-secondary">Value:</span> <span style="overflow-wrap: break-word;">{{ value }}</span>
     </h4>
     <a class="btn btn-primary my-2" role="button" href="{% url 'btree_db:index' %}">Back</a>
 {% endblock content %}

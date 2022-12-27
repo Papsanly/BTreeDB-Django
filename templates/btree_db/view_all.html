@@ -16,8 +16,8 @@
             <tbody>
                 {% for key, value in data %}
                     <tr>
-                        <td>{{ key }}</td>
-                        <td>{{ value }}</td>
+                        <td style="max-width:20px; overflow-wrap: break-word;">{{ key }}</td>
+                        <td style="max-width:80px; overflow-wrap: break-word;">{{ value }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
