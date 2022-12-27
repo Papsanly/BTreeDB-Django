@@ -1,0 +1,10 @@
+{% extends 'btree_db/base.html' %}
+
+{% block pageheader %}
+    <h2>Delete a record in the database</h2>
+{% endblock pageheader %}
+
+{% block content %}
+    {% url 'btree_db:delete' as url %}
+    {% include 'btree_db/form.html' with url=url form=form %}
+{% endblock content %}

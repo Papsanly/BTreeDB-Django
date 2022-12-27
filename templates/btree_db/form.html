@@ -1,0 +1,9 @@
+{% load bootstrap5 %}
+
+<form action="{{ url }}" method="post" style="max-width: 400px">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button class="btn btn-primary" name="submit">Go</button>
+        {% endbuttons %}
+</form>

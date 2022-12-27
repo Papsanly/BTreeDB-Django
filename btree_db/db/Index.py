@@ -77,7 +77,7 @@ class Index:
             parent = self.read(node.parent)
             new_node.parent = parent.pointer
             _, index = parent.search(mid_key)
-            parent.children.insert(index + 1, new_node.pointer)
+            parent.children.insert_or_update(index + 1, new_node.pointer)
             self.insert(node.parent, index, mid_key, mid_pointer)
         else:
             parent = self._create_node()

@@ -9,7 +9,7 @@ class BTreeDB:
             self,
             name: str,
             t: int,
-            truncate: bool = True
+            truncate: bool = True,
     ):
         if t < 2:
             raise ValueError('t can only be 2 or greater')

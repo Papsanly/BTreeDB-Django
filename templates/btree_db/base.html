@@ -1,15 +1,31 @@
+{% load bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>B-Tree Database</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
 <body>
     <header>
-        <h1>B-Tree Database</h1>
+        <div class="px-4 py-2 bg-dark">
+            <div class="d-flex">
+                <h1>
+                    <a class="text-decoration-none text-white" href="{% url 'btree_db:index' %}">B-Tree Database</a>
+                </h1>
+            </div>
+        </div>
     </header>
     <main>
-        {% block content %}{% endblock content %}
+        <section class="px-4 py-2 border-bottom">
+            {% block pageheader %}{% endblock pageheader %}
+        </section>
+        <section class="px-4 py-2">
+            {% block content %}{% endblock content %}
+        </section>
     </main>
 </body>
 </html>

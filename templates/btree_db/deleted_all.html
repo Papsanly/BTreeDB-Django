@@ -1,0 +1,9 @@
+{% extends 'btree_db/base.html' %}
+
+{% block pageheader %}
+    <h3>Database clean</h3>
+{% endblock pageheader %}
+
+{% block content %}
+    <a class="btn btn-primary" role="button" href={% url 'btree_db:index' %}>Back</a>
+{% endblock content %}

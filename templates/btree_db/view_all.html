@@ -1,0 +1,29 @@
+{% extends 'btree_db/base.html' %}
+
+{% block pageheader %}
+    <h3>View all database records</h3>
+{% endblock pageheader %}
+
+{% block content %}
+    {% if data %}
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in data %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Database is empty</p>
+        <a class="btn btn-primary" role="button" href={% url 'btree_db:insert' %}>Insert records</a>
+    {% endif %}
+{% endblock %}
