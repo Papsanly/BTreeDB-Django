@@ -21,11 +21,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Project
-    'BTreeDB'
+    'btree_db',
     
     # Third-party
-    'bootstrap5'
-    
+    'bootstrap5',
+
     # Default
     'django.contrib.admin',
     'django.contrib.auth',

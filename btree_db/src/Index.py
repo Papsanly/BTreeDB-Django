@@ -3,7 +3,7 @@ from os import mkdir, listdir
 from shutil import rmtree
 from typing import Literal
 
-from BTreeNode import BTreeNode
+from .BTreeNode import BTreeNode
 
 
 class Index:

@@ -1,6 +1,6 @@
 from typing import Literal, Self
-from BTreeIO import BTreeIO
-from Index import Index
+from .BTreeIO import BTreeIO
+from .Index import Index
 
 
 class BTreeDB:

@@ -3,5 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('BTreeDB.urls')),
+    path('', include('btree_db.urls')),
 ]

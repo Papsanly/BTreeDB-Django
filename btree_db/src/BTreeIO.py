@@ -1,5 +1,5 @@
 from typing import Literal
-from Converter import Converter
+from .Converter import Converter
 
 
 class BTreeIO:
