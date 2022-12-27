@@ -7,7 +7,7 @@ def init_db(truncate=False):
     if not truncate:
         try:
             return BTreeDB('db', t, truncate=False)
-        except ValueError:
+        except ValueError or FileNotFoundError:
             pass
     return BTreeDB('db', t, truncate=True)
 
