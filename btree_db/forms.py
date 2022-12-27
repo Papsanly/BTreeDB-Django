@@ -3,8 +3,8 @@ from .db.db_operations import init_db
 
 
 class KeyValueForm(Form):
-    key = IntegerField(label='', min_value=0, widget=NumberInput({'placeholder': 'Key'}))
-    value = CharField(label='', widget=Textarea({'placeholder': 'Value', 'rows': 5}))
+    key = IntegerField(label='', min_value=0, max_value=2 ** 32 - 1, widget=NumberInput({'placeholder': 'Key'}))
+    value = CharField(label='', max_length=2 ** 16 - 1, widget=Textarea({'placeholder': 'Value', 'rows': 5}))
 
 
 class KeyForm(Form):
