@@ -14,6 +14,8 @@ class Index:
         self.max_nodes_in_memory = max_nodes_in_memory
         self.t = t
 
+        self.comparisons = 0
+
         if truncate:
             try:
                 rmtree(self.dir_name)
@@ -76,8 +78,8 @@ class Index:
         if node.parent:
             parent = self.read(node.parent)
             new_node.parent = parent.pointer
-            _, index = parent.search(mid_key)
-            parent.children.insert_or_update(index + 1, new_node.pointer)
+            _, index, _ = parent.search(mid_key)
+            parent.children.insert(index + 1, new_node.pointer)
             self.insert(node.parent, index, mid_key, mid_pointer)
         else:
             parent = self._create_node()
@@ -97,12 +99,17 @@ class Index:
         node = self.read(node_pointer)
         node.pointers[index] = db_pointer
 
-    def search(self, key: int) -> tuple[int, int, int]:
-        return self._search_recursive(self.root_pointer, key)
+    def search(self, key: int, logging: bool = False) -> tuple[int, int, int]:
+        result = self._search_recursive(self.root_pointer, key)
+        if logging:
+            print(self.comparisons)
+        self.comparisons = 0
+        return result
 
     def _search_recursive(self, pointer: int, key: int):
         node = self.read(pointer, modify=False)
-        db_pointer, index = node.search(key)
+        db_pointer, index, comparisons = node.search(key)
+        self.comparisons += comparisons
 
         if db_pointer is not None or node.is_leaf:
             return db_pointer, pointer, index
@@ -110,7 +117,7 @@ class Index:
         return self._search_recursive(child, key)
 
     def _get_sibling(self, which: Literal['l', 'r'], node: BTreeNode, parent: BTreeNode) -> BTreeNode | None:
-        _, index = parent.search(node.keys[0])
+        _, index, _ = parent.search(node.keys[0])
         if which == 'l':
             sibling_idx = index - 1
         elif which == 'r':

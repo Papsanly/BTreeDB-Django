@@ -1,0 +1,10 @@
+{% extends 'btree_app/base.html' %}
+
+{% block pageheader %}
+    <h3>Deletion Successful</h3>
+{% endblock pageheader %}
+
+{% block content %}
+    <a class="btn btn-primary" role="button" href={% url 'btree_app:delete' %}>Delete more</a>
+    <a class="btn btn-secondary" role="button" href={% url 'btree_app:index' %}>Finish</a>
+{% endblock content %}

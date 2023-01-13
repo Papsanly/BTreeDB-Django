@@ -9,7 +9,7 @@ class BTreeDB:
             self,
             name: str,
             t: int,
-            truncate: bool = True,
+            truncate: bool = True
     ):
         if t < 2:
             raise ValueError('t can only be 2 or greater')
@@ -47,7 +47,7 @@ class BTreeDB:
         return content
 
     def __getitem__(self, key: int) -> str:
-        db_pointer, _, _ = self._index.search(key)
+        db_pointer, _, _ = self._index.search(key, logging=True)
         if db_pointer is None:
             raise KeyError
         return self._io.read(db_pointer)

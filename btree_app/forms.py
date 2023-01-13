@@ -1,5 +1,5 @@
 from django.forms import Form, IntegerField, CharField, Textarea, NumberInput, ValidationError
-from .db.db_operations import init_db
+from btree_db.db_operations import init_db
 
 
 class KeyValueForm(Form):

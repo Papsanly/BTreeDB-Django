@@ -1,0 +1,21 @@
+{% extends 'btree_app/base.html' %}
+{% load bootstrap5 %}
+
+{% block pageheader %}
+    <h2>Choose an operation</h2>
+{% endblock pageheader %}
+
+{% block content %}
+    <ul class="list-group">
+        <li class="list-group-item"><a class="text-decoration-none" href="{% url 'btree_app:insert' %}">Insert</a></li>
+        <li class="list-group-item"><a class="text-decoration-none" href="{% url 'btree_app:update' %}">Update</a></li>
+        <li class="list-group-item"><a class="text-decoration-none" href="{% url 'btree_app:delete' %}">Delete</a></li>
+        <li class="list-group-item"><a class="text-decoration-none" href="{% url 'btree_app:read' %}">Read</a></li>
+    </ul>
+    <a class="btn btn-primary my-2" role="button" href="{% url 'btree_app:view_all' %}">
+        View all
+    </a>
+    <a class="btn btn-danger my-2" role="button" href="{% url 'btree_app:delete_all' %}">
+        Delete all
+    </a>
+{% endblock content %}

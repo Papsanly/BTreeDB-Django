@@ -1,4 +1,4 @@
-{% extends 'btree_db/base.html' %}
+{% extends 'btree_app/base.html' %}
 
 {% block pageheader %}
     <h3>View a database record</h3>
@@ -11,5 +11,5 @@
     <h4>
         <span class="text-secondary">Value:</span> <span style="overflow-wrap: break-word;">{{ value }}</span>
     </h4>
-    <a class="btn btn-primary my-2" role="button" href="{% url 'btree_db:index' %}">Back</a>
+    <a class="btn btn-primary my-2" role="button" href="{% url 'btree_app:index' %}">Back</a>
 {% endblock content %}

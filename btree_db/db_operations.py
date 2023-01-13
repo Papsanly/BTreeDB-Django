@@ -1,13 +1,13 @@
 from .BTreeDB import BTreeDB
 
-t = 1024
+t = 50
 
 
 def init_db(truncate=False):
     if not truncate:
         try:
             return BTreeDB('db', t, truncate=False)
-        except ValueError or FileNotFoundError:
+        except (ValueError, FileNotFoundError):
             pass
     return BTreeDB('db', t, truncate=True)
 

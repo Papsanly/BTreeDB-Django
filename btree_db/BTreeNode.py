@@ -97,20 +97,22 @@ class BTreeNode:
         self.pointers = pointers1
         return mid_key, mid_pointer, children2, keys2, pointers2
 
-    def search(self, key: int) -> tuple[int | None, int]:
+    def search(self, key: int) -> tuple[int | None, int, int]:
+        comparisons = 0
         if self.size == 0:
-            return None, 0
+            return None, 0, comparisons
         low = 0
         high = self.size - 1
         while low <= high:
+            comparisons += 1
             mid = (low + high) // 2
             if self.keys[mid] == key:
-                return self.pointers[mid], mid
+                return self.pointers[mid], mid, comparisons
             elif self.keys[mid] < key:
                 low = mid + 1
             else:
                 high = mid - 1
-        return None, low
+        return None, low, comparisons
 
     def redistribute_keys_left(self, left_node: Self, right_node: Self):
         left_node_last_element = left_node.remove(-1)
